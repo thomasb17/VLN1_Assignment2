@@ -5,11 +5,23 @@
 Employee::Employee()
 {
 	name = " ";
-	//SSN = ?
+	//ssn = "1234567890";
 	salary = 0;
 	month = 0;
 	year = 0;
 }
+
+Employee::Employee(string name, char* ssn, int salary, int month, int year) {
+	this->name = name;
+	setSSN(ssn);
+	this->salary = salary;
+	this->month = month;
+	this->year = year;
+}
+
+/*
+	GET FUNCTIONS
+*/
 
 string Employee::getName() {
 	return name;
@@ -25,4 +37,26 @@ int Employee::getMonth() {
 }
 int Employee::getYear() {
 	return year;
+}
+
+/*
+	SET FUNCTIONS
+*/
+
+void Employee::setName(string name) {
+	this->name = name;
+}
+void Employee::setSSN(char* snn) {
+	for (int i = 0; i < SIZE; i++) {
+		this-> ssn[i] = ssn[i];
+	}
+}
+void Employee::setSalary(int salary) {
+	this->salary = salary;
+}
+void Employee::setMonth(int month) {
+	this->month = month;
+}
+void Employee::setYear(int year) {
+	this->year = year;
 }
