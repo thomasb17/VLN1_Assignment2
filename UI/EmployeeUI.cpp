@@ -12,7 +12,7 @@ void EmployeeUI::mainMenu() {
 	cout << "\nPlease pick one of the following\n"
 		 << "********************************\n"
 		 << "1. Add a salary record\n"
-		 << "2. get all salary records for a given SSN\n"
+		 << "2. Get all salary records for a given SSN\n"
 		 << "3. Get a total salary for a given year and a given SSN\n"
 		 << "4. Get the name of the employee with the highest total salary for a given year\n"
 		 << "5. To quit" << endl;

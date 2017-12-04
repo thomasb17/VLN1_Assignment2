@@ -3,6 +3,5 @@ class EmployeeService
 {
 public:
 	EmployeeService();
-	~EmployeeService();
 };
 

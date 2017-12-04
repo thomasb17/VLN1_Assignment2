@@ -30,7 +30,6 @@ vector<Employee> EmployeeRepository::getRecords() {
 			Employee record;
 			int size, salary, month, year;
 			string name;
-
 		}
 		fin.close();
 	}
