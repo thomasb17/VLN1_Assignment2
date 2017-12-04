@@ -4,6 +4,6 @@ int main() {
 
 	EmployeeUI employeeUI;
 	employeeUI.mainMenu();
-
+	//system("pause");
 	return 0;
 }
