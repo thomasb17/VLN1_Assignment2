@@ -47,6 +47,10 @@ void EmployeeUI::validateInput(char input) {
 	else if (input == '2') {
 		//Get all salary records for a given SSN
 		cout << "Please input an SSN" << endl;
+		char str[11];
+		cin >> str;
+		str[11] = '\0';
+		service.getRecordsForSSN(str);
 	}
 	else if (input == '3') {
 		//Get a total salary for a given year and a given SSN
