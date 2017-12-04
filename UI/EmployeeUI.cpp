@@ -10,3 +10,6 @@ EmployeeUI::EmployeeUI()
 EmployeeUI::~EmployeeUI()
 {
 }
+void EmployeeUI::mainMenu() {
+	cout << "bl";
+}

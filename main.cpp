@@ -1,9 +1,8 @@
-#include <iostream>
-
-using namespace std;
+#include "UI/EmployeeUI.h"
 
 int main() {
-	cout << "Hello world!" << endl;
+	EmployeeUI employeeUI;
+	employeeUI.mainMenu();
 
 	return 0;
 }
