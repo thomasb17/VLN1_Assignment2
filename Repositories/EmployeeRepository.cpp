@@ -14,10 +14,14 @@ void EmployeeRepository::addRecord(Employee record) {
 	int size  = (record.getName()).length() + 1;
 	fout.write((char*)(&size), sizeof(int));
 	fout.write((record.getName()).c_str(), size);
-	fout.write(record.getSSN(), sizeof(record.getSSN()));
-	fout.write((char*)(record.getSalary()), sizeof(int));
-	fout.write((char*)(record.getMonth()), sizeof(int));
-	fout.write((char*)(record.getYear()), sizeof(int));
+	char* ssn = record.getSSN();
+	fout.write(ssn, sizeof(record.getSSN()));
+	int salary = record.getSalary();
+	fout.write((char*)(&salary), sizeof(int));
+	int month = record.getMonth();
+	fout.write((char*)(&month), sizeof(int));
+	int year = record.getYear();
+	fout.write((char*)(&year), sizeof(int));
 	fout.close();
 }
 
