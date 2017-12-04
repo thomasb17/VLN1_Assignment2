@@ -15,6 +15,10 @@ private:
 
 public:
 	Employee();
-	~Employee();
+	string getName();
+	char getSSN();
+	int getSalary();
+	int getMonth();
+	int getYear();
 };
 

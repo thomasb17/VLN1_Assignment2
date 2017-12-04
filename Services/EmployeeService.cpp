@@ -6,7 +6,3 @@ EmployeeService::EmployeeService()
 {
 }
 
-
-EmployeeService::~EmployeeService()
-{
-}
