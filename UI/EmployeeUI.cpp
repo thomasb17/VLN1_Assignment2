@@ -51,8 +51,11 @@ void EmployeeUI::validateInput(char input) {
 		string str;
 		cin >> str;
 		vector<Employee> vec = service.getRecordsForSSN(str);
+		cout << "Name:\tSSN:\t\tSalary:\tMonth:\tYear:" << endl;
 		for (int i = 0; i < vec.size(); ++i) {
-			cout << vec.at(i).getSSN() << endl;
+			cout << vec.at(i).getName() << "\t" << vec.at(i).getSSN() << "\t";
+			cout << vec.at(i).getSalary() << "\t" << vec.at(i).getMonth() << "\t";
+			cout << vec.at(i).getYear() << endl;
 		}
 	}
 	else if (input == '3') {
