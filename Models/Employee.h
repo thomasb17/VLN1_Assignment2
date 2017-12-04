@@ -16,7 +16,7 @@ private:
 public:
 	Employee();
 	string getName();
-	char getSSN();
+	char* getSSN();
 	int getSalary();
 	int getMonth();
 	int getYear();

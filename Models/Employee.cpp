@@ -14,8 +14,8 @@ Employee::Employee()
 string Employee::getName() {
 	return name;
 }
-char Employee::getSSN() {
-	return SSN;
+char* Employee::getSSN() {
+	return ssn;
 }
 int Employee::getSalary() {
 	return salary;
