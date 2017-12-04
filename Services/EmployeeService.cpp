@@ -4,7 +4,7 @@ void EmployeeService::addRecord(Employee record) {
 	repo.addRecord(record);
 }
 
-vector<Employee> EmployeeService::getRecordsForSSN(char* ssn) {
+vector<Employee> EmployeeService::getRecordsForSSN(string ssn) {
 	vector<Employee> vec = repo.getRecords();
 	for (int i = 0; i < vec.size(); i++) {
 		if (vec.at(i).getSSN() != ssn) {
@@ -14,7 +14,7 @@ vector<Employee> EmployeeService::getRecordsForSSN(char* ssn) {
 	return vec;
 }
 
-int EmployeeService::getTotalSalary(int year, char* ssn) {
+int EmployeeService::getTotalSalary(int year, string ssn) {
 	int total = 0;
 	vector<Employee> vec = getRecordsForSSN(ssn);
 	for (int i = 0; i < vec.size(); i++) {
