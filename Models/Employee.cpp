@@ -5,7 +5,7 @@
 Employee::Employee()
 {
 	name = " ";
-	//SSN = ?
+	ssn = "1234567890";
 	salary = 0;
 	month = 0;
 	year = 0;
