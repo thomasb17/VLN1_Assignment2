@@ -28,7 +28,7 @@ vector<Employee> EmployeeRepository::getRecords() {
 	if (fin.is_open()) {
 		while (pos != endpos) {
 			Employee record;
-			int size, salary, ;
+			int size, salary, month, year;
 			string name;
 
 		}
