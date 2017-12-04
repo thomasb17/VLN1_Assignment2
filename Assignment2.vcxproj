@@ -111,7 +111,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Services\EmployeeService.cpp" />
+    <ClCompile Include="Repositories\EmployeeRepository.cpp" />
+    <ClCompile Include="Models\Employee.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Services\EmployeeService.h" />
+    <ClInclude Include="Repositories\EmployeeRepository.h" />
+    <ClInclude Include="Models\Employee.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
