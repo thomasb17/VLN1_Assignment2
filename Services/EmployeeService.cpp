@@ -26,10 +26,10 @@ int EmployeeService::getTotalSalary(int year, string ssn) {
 }
 
 string EmployeeService::getHighestSalaryName(int year) {
-	string str;
+	string str = "None";
 	int tempSalary;
 	vector<Employee> vec = repo.getRecords();
-	int highestSalary = getTotalSalary(year, vec.at(0).getSSN());
+	int highestSalary = 0;
 	for (int i = 1; i < vec.size(); i++) {
 		tempSalary = getTotalSalary(year, vec.at(i).getSSN());
 		if(highestSalary < tempSalary){
