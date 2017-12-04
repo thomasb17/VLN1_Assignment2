@@ -8,7 +8,7 @@ private:
 	EmployeeRepository repo;
 public:
 	void addRecord(Employee record);
-	vector<Employee> getRecordsForSSN(char* ssn);
-	int getTotalSalary(int year, char* ssn);
+	vector<Employee> getRecordsForSSN(string ssn);
+	int getTotalSalary(int year, string ssn);
 	string getHighestSalaryName(int year);
 };

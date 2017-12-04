@@ -9,9 +9,9 @@ Employee::Employee()
 	year = 0;
 }
 
-Employee::Employee(string name, char* ssn, int salary, int month, int year) {
+Employee::Employee(string name, string ssn, int salary, int month, int year) {
 	this->name = name;
-	setSSN(ssn);
+	this->ssn = ssn;
 	this->salary = salary;
 	this->month = month;
 	this->year = year;
@@ -24,7 +24,7 @@ Employee::Employee(string name, char* ssn, int salary, int month, int year) {
 string Employee::getName() {
 	return name;
 }
-char* Employee::getSSN() {
+string Employee::getSSN() {
 	return ssn;
 }
 int Employee::getSalary() {
@@ -44,10 +44,8 @@ int Employee::getYear() {
 void Employee::setName(string name) {
 	this->name = name;
 }
-void Employee::setSSN(char* snn) {
-	for (int i = 0; i < SIZE; i++) {
-		this-> ssn[i] = ssn[i];
-	}
+void Employee::setSSN(string snn) {
+	this->ssn = ssn;
 }
 void Employee::setSalary(int salary) {
 	this->salary = salary;

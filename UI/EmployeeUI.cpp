@@ -27,9 +27,13 @@ void EmployeeUI::mainMenu() {
 
 void EmployeeUI::validateInput(char input) {
 	if (input == '1') {
+<<<<<<< HEAD
 		//Add a salary record
 		string name;
 		char* ssn = new char[11];
+=======
+		string name, ssn;
+>>>>>>> abe746414be7ed6555d170f4844aa82cbb0e4083
 		int salary;
 		int month;
 		int year;
@@ -45,15 +49,24 @@ void EmployeeUI::validateInput(char input) {
 		cout << "Year: ";
 		cin >> year;
 		service.addRecord(Employee(name, ssn, salary, month, year));
-		delete[] ssn;
 	}
 	else if (input == '2') {
 		//Get all salary records for a given SSN
+<<<<<<< HEAD
 		cout << "Please input an SSN: ";
 		char str[11];
 		cin >> str;
 		str[10] = '\0';
 		service.getRecordsForSSN(str);
+=======
+		cout << "Please input an SSN" << endl;
+		string str;
+		cin >> str;
+		vector<Employee> vec = service.getRecordsForSSN(str);
+		for (int i = 0; i < vec.size(); ++i) {
+			cout << vec.at(i).getSSN() << endl;
+		}
+>>>>>>> abe746414be7ed6555d170f4844aa82cbb0e4083
 	}
 	else if (input == '3') {
 		//Get a total salary for a given year and a given SSN

@@ -9,21 +9,21 @@ class Employee
 {
 private:
 	string name;
-	char ssn[SIZE];
+	string ssn;
 	int salary;
 	int month;
 	int year;
 
 public:
 	Employee();
-	Employee(string name, char* ssn, int salary, int month, int year);
+	Employee(string name, string ssn, int salary, int month, int year);
 	string getName();
-	char* getSSN();
+	string getSSN();
 	int getSalary();
 	int getMonth();
 	int getYear();
 	void setName(string name);
-	void setSSN(char* snn);
+	void setSSN(string snn);
 	void setSalary(int salary);
 	void setMonth(int month);
 	void setYear(int year);

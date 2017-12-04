@@ -14,8 +14,7 @@ void EmployeeRepository::addRecord(Employee record) {
 	int size  = (record.getName()).length() + 1;
 	//fout.write((char*)(&size), sizeof(int));
 	fout.write((record.getName()).c_str(), size);
-	char* ssn = record.getSSN();
-	fout.write(ssn, sizeof(record.getSSN()));
+	fout.write((record.getSSN()).c_str(), 11);
 	int salary = record.getSalary();
 	fout.write((char*)(&salary), sizeof(int));
 	int month = record.getMonth();
@@ -36,19 +35,20 @@ vector<Employee> EmployeeRepository::getRecords() {
 		int pos = 0;
 		while (pos != endpos) {
 			int size, salary, month, year;
-			string name;
+			string name, ssn;
 			fin.read((char*)(&size), sizeof(int));
 			char* str = new char[size];
 			fin.read(str, size);
 			name = str;
-			char* ssn = new char[SIZE];
-			fin.read(ssn, SIZE);
+			char* n = new char[SIZE];
+			fin.read(n, SIZE);
+			ssn = n;
 			fin.read((char*)(&salary), sizeof(int));
 			fin.read((char*)(&month), sizeof(int));
 			fin.read((char*)(&year), sizeof(int));
 			Employee record(name, ssn, salary, month, year);
 			delete[] str;
-			delete[] ssn;
+			delete[] n;
 			vec.push_back(record);
 			pos = fin.tellg();
 		}
