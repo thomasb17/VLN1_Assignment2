@@ -9,13 +9,14 @@ EmployeeUI::EmployeeUI()
 
 void EmployeeUI::mainMenu() {
 	while(true){
-	cout << "\nPlease pick one of the following\n"
-		 << "********************************\n"
-		 << "1. Add a salary record\n"
-		 << "2. Get all salary records for a given SSN\n"
-		 << "3. Get a total salary for a given year and a given SSN\n"
-		 << "4. Get the name of the employee with the highest total salary for a given year\n"
-		 << "5. To quit" << endl;
+		cout << "\nPlease pick one of the following\n"
+			<< "********************************\n"
+			<< "1. Add a salary record\n"
+			<< "2. Get all salary records for a given SSN\n"
+			<< "3. Get a total salary for a given year and a given SSN\n"
+			<< "4. Get the name of the employee with the highest total salary for a given year\n"
+			<< "5. To quit\n\n"
+			<< "Input: ";
 	cin >> input;
 	if (input == '5') {
 		break;
@@ -26,6 +27,7 @@ void EmployeeUI::mainMenu() {
 
 void EmployeeUI::validateInput(char input) {
 	if (input == '1') {
+		//Add a salary record
 		string name;
 		char* ssn = new char[11];
 		int salary;
@@ -47,14 +49,25 @@ void EmployeeUI::validateInput(char input) {
 	}
 	else if (input == '2') {
 		//Get all salary records for a given SSN
-		cout << "Please input an SSN" << endl;
+		cout << "Please input an SSN: ";
 		char str[11];
 		cin >> str;
-		str[11] = '\0';
+		str[10] = '\0';
 		service.getRecordsForSSN(str);
 	}
 	else if (input == '3') {
 		//Get a total salary for a given year and a given SSN
+		int year;
+		char str[11];
+
+		cout << "Please input a year and an SSN:" << endl;
+		cout << "Year: ";
+		cin >> year;
+		cout << "SSN: ";
+		cin >> str;
+		str[10] = '\0';
+		service.getTotalSalary(year, str);
+
 	}
 	else if (input == '4') {
 		//Get the name of the employee with the highest total salary for a given year

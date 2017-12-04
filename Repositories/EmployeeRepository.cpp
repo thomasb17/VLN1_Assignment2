@@ -12,7 +12,7 @@ void EmployeeRepository::addRecord(Employee record) {
 	ofstream fout;
 	fout.open(this->file, ios::binary | ios::app);
 	int size  = (record.getName()).length() + 1;
-	fout.write((char*)(&size), sizeof(int));
+	//fout.write((char*)(&size), sizeof(int));
 	fout.write((record.getName()).c_str(), size);
 	char* ssn = record.getSSN();
 	fout.write(ssn, sizeof(record.getSSN()));
