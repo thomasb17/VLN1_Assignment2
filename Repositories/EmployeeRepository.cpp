@@ -33,15 +33,18 @@ vector<Employee> EmployeeRepository::getRecords() {
 		while (pos != endpos) {
 			int size, salary, month, year;
 			string name;
-			char* str, ssn;
 			fin.read((char*)(&size), sizeof(int));
+			char* str = new char[size];
 			fin.read(str, size);
 			name = str;
-			fin.read(&ssn, 11);
+			char* ssn = new char[SIZE];
+			fin.read(ssn, SIZE);
 			fin.read((char*)(&salary), sizeof(int));
 			fin.read((char*)(&month), sizeof(int));
 			fin.read((char*)(&year), sizeof(int));
 			Employee record(name, ssn, salary, month, year);
+			delete[] str;
+			delete[] ssn;
 			vec.push_back(record);
 			pos = fin.tellg();
 		}
