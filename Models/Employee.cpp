@@ -11,18 +11,18 @@ Employee::Employee()
 	year = 0;
 }
 
-string getName() {
+string Employee::getName() {
 	return name;
 }
-char getSSN() {
+char Employee::getSSN() {
 	return SSN;
 }
-int getSalary() {
+int Employee::getSalary() {
 	return salary;
 }
-int getMonth() {
+int Employee::getMonth() {
 	return month;
 }
-int getYear() {
+int Employee::getYear() {
 	return year;
 }
