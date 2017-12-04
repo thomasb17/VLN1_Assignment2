@@ -47,7 +47,7 @@ void EmployeeUI::validateInput(char input) {
 	}
 	else if (input == '2') {
 		//Get all salary records for a given SSN
-		cout << "Please input an SSN" << endl;
+		cout << "Please input an SSN: ";
 		string str;
 		cin >> str;
 		vector<Employee> vec = service.getRecordsForSSN(str);
@@ -58,15 +58,14 @@ void EmployeeUI::validateInput(char input) {
 	else if (input == '3') {
 		//Get a total salary for a given year and a given SSN
 		int year;
-		char str[11];
+		string str;
 
 		cout << "Please input a year and an SSN:" << endl;
 		cout << "Year: ";
 		cin >> year;
 		cout << "SSN: ";
 		cin >> str;
-		str[10] = '\0';
-		service.getTotalSalary(year, str);
+		cout << "The total salary for that given year and SSN is: " << service.getTotalSalary(year, str) << endl;
 
 	}
 	else if (input == '4') {
@@ -74,6 +73,7 @@ void EmployeeUI::validateInput(char input) {
 		int year;
 		cout << "Please input a year: ";
 		cin >> year;
+		cout << "The employee with the highest total salary for that given year is: " << service.getHighestSalaryName(year) << endl;
 
 	}
 	else {
