@@ -111,12 +111,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="UI\EmployeeUI.cpp" />
     <ClCompile Include="Services\EmployeeService.cpp" />
     <ClCompile Include="Repositories\EmployeeRepository.cpp" />
     <ClCompile Include="Models\Employee.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="UI\EmployeeUI.h" />
     <ClInclude Include="Services\EmployeeService.h" />
     <ClInclude Include="Repositories\EmployeeRepository.h" />
     <ClInclude Include="Models\Employee.h" />
