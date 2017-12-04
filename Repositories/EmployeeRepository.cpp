@@ -15,9 +15,9 @@ void EmployeeRepository::addRecord(Employee record) {
 	fout.write((char*)(&size), sizeof(int));
 	fout.write((record.getName()).c_str(), size);
 	fout.write(record.getSSN(), sizeof(record.getSSN()));
-	fout.write((char*)((record.getSalary())), sizeof(int));
-	fout.write((char*)((record.getMonth())), sizeof(int));
-	fout.write((char*)((record.getYear())), sizeof(int));
+	fout.write((char*)(record.getSalary()), sizeof(int));
+	fout.write((char*)(record.getMonth()), sizeof(int));
+	fout.write((char*)(record.getYear()), sizeof(int));
 	fout.close();
 }
 
@@ -26,12 +26,24 @@ vector<Employee> EmployeeRepository::getRecords() {
 	vector<Employee> vec;
 	fin.open(this->file, ios::binary);
 	if (fin.is_open()) {
+		fin.seekg(0, fin.end);
+		int endpos = fin.tellg();
+		fin.seekg(0, fin.beg);
 		int pos = 0;
-		int endpos = 0;
 		while (pos != endpos) {
-			Employee record;
 			int size, salary, month, year;
 			string name;
+			char* str, ssn;
+			fin.read((char*)(&size), sizeof(int));
+			fin.read(str, size);
+			name = str;
+			fin.read(&ssn, 11);
+			fin.read((char*)(&salary), sizeof(int));
+			fin.read((char*)(&month), sizeof(int));
+			fin.read((char*)(&year), sizeof(int));
+			Employee record(name, ssn, salary, month, year);
+			vec.push_back(record);
+			pos = fin.tellg();
 		}
 		fin.close();
 	}
