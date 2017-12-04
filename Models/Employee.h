@@ -1,9 +1,10 @@
 #pragma once
-
 #include <iostream>
-
 using namespace std;
+
+//Size of the SSN
 const int SIZE = 11;
+
 class Employee
 {
 private:
