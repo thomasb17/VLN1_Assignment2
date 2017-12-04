@@ -14,10 +14,10 @@ void EmployeeRepository::addRecord(Employee record) {
 	int size  = (record.getName()).length() + 1;
 	fout.write((char*)(&size), sizeof(int));
 	fout.write((record.getName()).c_str(), size);
-	fout.write(&(record.getSSN()), sizeof(record.getSSN()));
-	fout.write((char*)(&(record.getSalary())), sizeof(int));
-	fout.write((char*)(&(record.getMonth())), sizeof(int));
-	fout.write((char*)(&(record.getYear())), sizeof(int));
+	fout.write(record.getSSN(), sizeof(record.getSSN()));
+	fout.write((char*)((record.getSalary())), sizeof(int));
+	fout.write((char*)((record.getMonth())), sizeof(int));
+	fout.write((char*)((record.getYear())), sizeof(int));
 	fout.close();
 }
 
@@ -26,7 +26,8 @@ vector<Employee> EmployeeRepository::getRecords() {
 	vector<Employee> vec;
 	fin.open(this->file, ios::binary);
 	if (fin.is_open()) {
-		int pos, endpos;
+		int pos = 0;
+		int endpos = 0;
 		while (pos != endpos) {
 			Employee record;
 			int size, salary, month, year;
