@@ -26,10 +26,27 @@ void EmployeeUI::mainMenu() {
 
 void EmployeeUI::validateInput(char input) {
 	if (input == '1') {
-		//Add a salary record
+		string name;
+		char ssn[11];
+		int salary;
+		int month;
+		int year;
+
+		cout << "Name: ";
+		cin >> name;
+		cout << "SSN: ";
+		cin >> ssn;
+		cout << "Salary: ";
+		cin >> salary;
+		cout << "Month: ";
+		cin >> month;
+		cout << "Year: ";
+		cin >> year;
+		service.addRecord(Employee(name, ssn, salary, month, year));
 	}
 	else if (input == '2') {
 		//Get all salary records for a given SSN
+		cout << "Please input an SSN" << endl;
 	}
 	else if (input == '3') {
 		//Get a total salary for a given year and a given SSN
