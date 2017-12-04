@@ -5,7 +5,6 @@ class EmployeeUI
 {
 public:
 	EmployeeUI();
-	~EmployeeUI();
 	void mainMenu();
 };
 
