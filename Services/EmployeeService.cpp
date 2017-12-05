@@ -45,57 +45,40 @@ string EmployeeService::getHighestSalaryName(int year) {
 	return str;
 }
 
-void EmployeeService::validateName(const Employee& record) {
-<<<<<<< HEAD
-	string tempName = record.getName();
-	for (int i = 0; i < tempName.length(); i++)
-	{
-		if (!isalpha(tempName[i]))
-		{
-=======
-	for (int i = 0; i < record.getName().length(); ++i) {
-		if (!isalpha(record.getName()[i]) || record.getName()[i] != ' ') {
->>>>>>> 86b4aaa72d4384744c001657d146f6afa0a7af2a
+void EmployeeService::validateName(const string& name) {
+	for (int i = 0; i < name.length(); ++i) {
+		if (!isalpha(name[i]) || name[i] != ' ') {
 			throw InvalidNameException();
 		}
 	}
 }
 
-void EmployeeService::validateSSN(const Employee& record) {
-<<<<<<< HEAD
-	if (record.getName().length() != 10) {
-=======
-	if (record.getSSN().length() != 10) {
->>>>>>> 86b4aaa72d4384744c001657d146f6afa0a7af2a
+void EmployeeService::validateSSN(const string& ssn) {
+	if (ssn.length() != 10) {
 		throw InvalidSSNException();
 	}
-	string ssn = record.getSSN();
 
 	for (int i = 0; i < 10; ++i) {
-<<<<<<< HEAD
 		if (!isdigit(ssn[i])) {
-=======
-		if (!isdigit(record.getSSN()[i])){
->>>>>>> 86b4aaa72d4384744c001657d146f6afa0a7af2a
 			throw InvalidSSNException();
 		}
 	}
 }
 
-void EmployeeService::validateSalary(const Employee& record) {
-	if (record.getSalary() < 0) {
+void EmployeeService::validateSalary(const int& salary) {
+	if (salary < 0) {
 		throw InvalidSalaryException();
 	}
 }
 
-void EmployeeService::validateMonth(const Employee& record) {
-	if (record.getMonth() < 0 || record.getMonth() > 12) {
+void EmployeeService::validateMonth(const int& month) {
+	if (month < 0 || month > 12) {
 		throw InvalidMonthException();
 	}
 }
 
-void EmployeeService::validateYear(const Employee& record) {
-	if (record.getYear() > 2017) {
+void EmployeeService::validateYear(const int& year) {
+	if (year > 2017) {
 		throw InvalidYearException();
 	}
 }
