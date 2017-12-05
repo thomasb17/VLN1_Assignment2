@@ -51,7 +51,7 @@ string EmployeeService::getHighestSalaryName(int year) {
 
 void EmployeeService::validateName(const string& name) {
 	for (int i = 0; i < name.length(); ++i) {
-		if (!isalpha(name[i]) || name[i] != ' ') {
+		if (!isalpha(name[i]) && name[i] != ' ') {
 			throw InvalidNameException();
 		}
 	}

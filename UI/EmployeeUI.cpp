@@ -38,7 +38,7 @@ void EmployeeUI::validateInput(char input) {
 		cin >> ssn;
 		cout << "Salary: ";
 		cin >> salary;
-		cout << "Month: ";
+		cout << "Month (1 - 12): ";
 		cin >> month;
 		cout << "Year: ";
 		cin >> year;
@@ -68,14 +68,23 @@ void EmployeeUI::validateInput(char input) {
 		cout << "Please input an SSN: ";
 		string str;
 		cin >> str;
-		vector<Employee> vec = service.getRecordsForSSN(str);
-		cout << "Name:\tSSN:\t\tSalary:\tMonth:\tYear:" << endl;
-		for (int i = 0; i < vec.size(); ++i) {
-			cout << vec.at(i).getName() << "\t" << vec.at(i).getSSN() << "\t";
-			cout << vec.at(i).getSalary() << "\t" << vec.at(i).getMonth() << "\t";
-			cout << vec.at(i).getYear() << endl;
+		try {
+			vector<Employee> vec = service.getRecordsForSSN(str);
+			cout << "Name:\tSSN:\t\tSalary:\tMonth:\tYear:" << endl;
+			for (int i = 0; i < vec.size(); ++i) {
+				cout << vec.at(i).getName() << "\t" << vec.at(i).getSSN() << "\t";
+				cout << vec.at(i).getSalary() << "\t" << vec.at(i).getMonth() << "\t";
+				cout << vec.at(i).getYear() << endl;
+			}
+		}
+		catch (InvalidSSNException) {
+			cout << "Invalid SSN" << endl;
+		}
+		catch (NoFileException) {
+			cout << "File not found" << endl;
 		}
 	}
+
 	else if (input == '3') {
 		//Get a total salary for a given year and a given SSN
 		int year;
@@ -95,7 +104,7 @@ void EmployeeUI::validateInput(char input) {
 		catch (InvalidSSNException) {
 			cout << "Invalid SSN" << endl;
 		}
-		catch (NoFileExceptions) {
+		catch (NoFileException) {
 			cout << "File not found" << endl;
 		}
 
@@ -105,7 +114,12 @@ void EmployeeUI::validateInput(char input) {
 		int year;
 		cout << "Please input a year: ";
 		cin >> year;
-		cout << "The employee with the highest total salary for that given year is: " << service.getHighestSalaryName(year) << endl;
+		try {
+			cout << "The employee with the highest total salary for that given year is: " << service.getHighestSalaryName(year) << endl;
+		}
+		catch (InvalidYearException) {
+			cout << "Invalid year" << endl;
+		}
 
 	}
 	else {
