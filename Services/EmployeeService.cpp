@@ -1,6 +1,6 @@
 #include "EmployeeService.h"
 
-void EmployeeService::addRecord(Employee record) {
+void EmployeeService::addRecord(const Employee& record) {
 	repo.addRecord(record);
 }
 
@@ -38,4 +38,24 @@ string EmployeeService::getHighestSalaryName(int year) {
 		}
 	}
 	return str;
+}
+
+void validateName(const Employee& record) {
+
+}
+
+void validateSSN(const Employee& record) {
+
+}
+
+void validateSalary(const Employee& record) {
+
+}
+
+void validateMonth(const Employee& record) {
+
+}
+
+void validateYear(const Employee& record) {
+
 }

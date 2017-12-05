@@ -10,7 +10,7 @@ private:
 public:
 	EmployeeRepository();
 	~EmployeeRepository();
-	void addRecord(Employee record);
+	void addRecord(const Employee& record);
 	vector<Employee> getRecords();
 	
 };

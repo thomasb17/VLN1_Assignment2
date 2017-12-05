@@ -8,7 +8,7 @@ EmployeeRepository::EmployeeRepository() {
 
 EmployeeRepository::~EmployeeRepository() {}
 
-void EmployeeRepository::addRecord(Employee record) {
+void EmployeeRepository::addRecord(const Employee& record) {
 	ofstream fout;
 	fout.open(this->file, ios::binary | ios::app);
 	int size  = (record.getName()).length() + 1;
