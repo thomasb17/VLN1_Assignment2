@@ -10,6 +10,7 @@ void EmployeeService::addRecord(const Employee& record) {
 }
 
 vector<Employee> EmployeeService::getRecordsForSSN(string ssn) {
+	validateSSN(ssn);
 	vector<Employee> vec = repo.getRecords();
 	for (int i = 0; i < vec.size(); i++) {
 		if (vec.at(i).getSSN() != ssn) {
@@ -20,6 +21,8 @@ vector<Employee> EmployeeService::getRecordsForSSN(string ssn) {
 }
 
 int EmployeeService::getTotalSalary(int year, string ssn) {
+	validateYear(year);
+	validateSSN(ssn);
 	int total = 0;
 	vector<Employee> vec = getRecordsForSSN(ssn);
 	for (int i = 0; i < vec.size(); i++) {
@@ -31,6 +34,7 @@ int EmployeeService::getTotalSalary(int year, string ssn) {
 }
 
 string EmployeeService::getHighestSalaryName(int year) {
+	validateYear(year);
 	string str = "None";
 	int tempSalary;
 	vector<Employee> vec = repo.getRecords();
