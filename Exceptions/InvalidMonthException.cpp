@@ -6,7 +6,3 @@ InvalidMonthException::InvalidMonthException()
 {
 }
 
-
-InvalidMonthException::~InvalidMonthException()
-{
-}

@@ -3,6 +3,5 @@ class InvalidNameException
 {
 public:
 	InvalidNameException();
-	~InvalidNameException();
 };
 

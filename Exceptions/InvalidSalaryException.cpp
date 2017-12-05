@@ -5,8 +5,3 @@
 InvalidSalaryException::InvalidSalaryException()
 {
 }
-
-
-InvalidSalaryException::~InvalidSalaryException()
-{
-}

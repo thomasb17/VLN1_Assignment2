@@ -3,6 +3,5 @@ class InvalidSalaryException
 {
 public:
 	InvalidSalaryException();
-	~InvalidSalaryException();
 };
 

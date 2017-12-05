@@ -55,11 +55,11 @@ void EmployeeService::validateName(const Employee& record) {
 }
 
 void EmployeeService::validateSSN(const Employee& record) {
-	if (record.getName().length() != 10) {
+	if (record.getSSN().length() != 10) {
 		throw InvalidSSNException();
 	}
 	for (int i = 0; i < 10; ++i) {
-		if (!isdigit(record.getName()[i])) {
+		if (!isdigit(record.getSSN()[i])){
 			throw InvalidSSNException();
 		}
 	}
