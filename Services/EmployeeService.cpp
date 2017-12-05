@@ -1,11 +1,11 @@
 #include "EmployeeService.h"
 
 void EmployeeService::addRecord(const Employee& record) {
-	validateName(record);
-	validateSSN(record);
-	validateSalary(record);
-	validateMonth(record);
-	validateYear(record);
+	validateName(record.getName());
+	validateSSN(record.getSSN());
+	validateSalary(record.getSalary());
+	validateMonth(record.getMonth());
+	validateYear(record.getYear());
 	repo.addRecord(record);
 }
 
