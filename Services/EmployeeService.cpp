@@ -1,6 +1,16 @@
 #include "EmployeeService.h"
+#include "../Exceptions/InvalidNameException.h"
+#include "../Exceptions/InvalidSSNException.h"
+#include "../Exceptions/InvalidSalaryException.h"
+#include "../Exceptions/InvalidMonthException.h"
+#include "../Exceptions/InvalidYearException.h"
 
 void EmployeeService::addRecord(const Employee& record) {
+	validateName(record);
+	validateSSN(record);
+	validateSalary(record);
+	validateMonth(record);
+	validateYear(record);
 	repo.addRecord(record);
 }
 
@@ -45,7 +55,14 @@ void validateName(const Employee& record) {
 }
 
 void validateSSN(const Employee& record) {
-
+	if (record.getName().length() != 10) {
+		throw InvalidSSNException;
+	}
+	for (int i = 0; i < 10; ++i) {
+		if (!isdigit(record.getName()[i])) {
+			throw InvalidSSNException;
+		}
+	}
 }
 
 void validateSalary(const Employee& record) {
