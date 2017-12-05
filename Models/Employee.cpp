@@ -21,19 +21,19 @@ Employee::Employee(string name, string ssn, int salary, int month, int year) {
 	GET FUNCTIONS
 */
 
-string Employee::getName() {
+string Employee::getName() const {
 	return name;
 }
-string Employee::getSSN() {
+string Employee::getSSN() const {
 	return ssn;
 }
-int Employee::getSalary() {
+int Employee::getSalary() const {
 	return salary;
 }
-int Employee::getMonth() {
+int Employee::getMonth() const {
 	return month;
 }
-int Employee::getYear() {
+int Employee::getYear() const {
 	return year;
 }
 

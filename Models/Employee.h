@@ -17,11 +17,11 @@ private:
 public:
 	Employee();
 	Employee(string name, string ssn, int salary, int month, int year);
-	string getName();
-	string getSSN();
-	int getSalary();
-	int getMonth();
-	int getYear();
+	string getName() const;
+	string getSSN() const;
+	int getSalary() const;
+	int getMonth() const;
+	int getYear() const;
 	void setName(string name);
 	void setSSN(string snn);
 	void setSalary(int salary);

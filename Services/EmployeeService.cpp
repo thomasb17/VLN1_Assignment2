@@ -56,23 +56,29 @@ void validateName(const Employee& record) {
 
 void validateSSN(const Employee& record) {
 	if (record.getName().length() != 10) {
-		throw InvalidSSNException;
+		throw InvalidSSNException();
 	}
 	for (int i = 0; i < 10; ++i) {
 		if (!isdigit(record.getName()[i])) {
-			throw InvalidSSNException;
+			throw InvalidSSNException();
 		}
 	}
 }
 
 void validateSalary(const Employee& record) {
-
+	if (record.getSalary() < 0) {
+		throw InvalidSalaryException();
+	}
 }
 
 void validateMonth(const Employee& record) {
-
+	if (record.getMonth() < 0 || record.getMonth() > 12) {
+		throw InvalidMonthException();
+	}
 }
 
 void validateYear(const Employee& record) {
-
+	if (record.getYear() > 2017) {
+		throw InvalidYearException();
+	}
 }
