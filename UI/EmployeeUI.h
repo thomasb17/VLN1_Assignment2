@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+//For clearing the screen
+#include <stdlib.h> 
 #include "../Services/EmployeeService.h"
 using namespace std;
 
@@ -13,6 +15,5 @@ public:
 	EmployeeUI();
 	void mainMenu();
 	void validateInput(char input);
-	//void validInput();
 };
 
