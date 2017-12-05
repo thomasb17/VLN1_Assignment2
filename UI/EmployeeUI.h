@@ -15,5 +15,9 @@ public:
 	EmployeeUI();
 	void mainMenu();
 	void validateInput(char input);
+	void addSalaryRecord();
+	void getSalaryRecords();
+	void totalSalary();
+	void highestSalaryWorker();
 };
 
