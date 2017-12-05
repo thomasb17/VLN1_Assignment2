@@ -1,6 +1,5 @@
 #include "EmployeeUI.h"
 
-
 EmployeeUI::EmployeeUI()
 {
 	input = ' ';
@@ -17,12 +16,14 @@ void EmployeeUI::mainMenu() {
 			<< "5. To quit\n\n"
 			<< "Input: ";
 	cin >> input;
+
 	if (input == '5') {
-		break;
+		exit(1);
 	}
 	else validateInput(input);
 	}
 }
+
 
 void EmployeeUI::validateInput(char input) {
 	if (input == '1') {
@@ -47,19 +48,24 @@ void EmployeeUI::validateInput(char input) {
 			service.addRecord(Employee(name, ssn, salary, month, year));
 		}
 		catch (InvalidNameException) {
-			cout << "Invalid name" << endl;
+			system("CLS");
+			cout << "Invalid name!" << endl;
 		}
 		catch (InvalidSSNException) {
-			cout << "Invalid SSN" << endl;
+			system("CLS");
+			cout << "Invalid SSN!" << endl;
 		}
 		catch (InvalidSalaryException) {
-			cout << "Invalid salary" << endl;
+			system("CLS");
+			cout << "Invalid salary!" << endl;
 		}
 		catch (InvalidMonthException) {
-			cout << "Invalid month" << endl;
+			system("CLS");
+			cout << "Invalid month!" << endl;
 		}
 		catch (InvalidYearException) {
-			cout << "Invalid year" << endl;
+			system("CLS");
+			cout << "Invalid year!" << endl;
 		}
 	}	
 
@@ -78,10 +84,12 @@ void EmployeeUI::validateInput(char input) {
 			}
 		}
 		catch (InvalidSSNException) {
-			cout << "Invalid SSN" << endl;
+			system("CLS");
+			cout << "Invalid SSN!" << endl;
 		}
 		catch (NoFileException) {
-			cout << "File not found" << endl;
+			system("CLS");
+			cout << "File not found." << endl;
 		}
 	}
 
@@ -99,13 +107,16 @@ void EmployeeUI::validateInput(char input) {
 			cout << "The total salary for that given year and SSN is: " << service.getTotalSalary(year, str) << endl;
 		}
 		catch (InvalidYearException) {
-			cout << "Invalid year" << endl;
+			system("CLS");
+			cout << "Invalid year!" << endl;
 		}
 		catch (InvalidSSNException) {
-			cout << "Invalid SSN" << endl;
+			system("CLS");
+			cout << "Invalid SSN!" << endl;
 		}
 		catch (NoFileException) {
-			cout << "File not found" << endl;
+			system("CLS");
+			cout << "File not found." << endl;
 		}
 
 	}
@@ -118,29 +129,13 @@ void EmployeeUI::validateInput(char input) {
 			cout << "The employee with the highest total salary for that given year is: " << service.getHighestSalaryName(year) << endl;
 		}
 		catch (InvalidYearException) {
-			cout << "Invalid year" << endl;
+			system("CLS");
+			cout << "Invalid year!" << endl;
 		}
 
 	}
 	else {
+		system("CLS");
 		cout << "Invalid input!" << endl;
 	}
 }
-
-/*void EmployeeUI::validInput() {
-	catch (InvalidNameException) {
-		cout << "Name";
-	}
-	catch (InvalidSSNException) {
-		cout << "SSN";
-	}
-	catch (InvalidSalaryException) {
-		cout << "Salary";
-	}
-	catch (InvalidMonthException) {
-		cout << "Month";
-	}
-	catch (InvalidYearException) {
-		cout << "Year";
-	}
-}*/
