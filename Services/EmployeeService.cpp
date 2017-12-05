@@ -50,11 +50,11 @@ string EmployeeService::getHighestSalaryName(int year) {
 	return str;
 }
 
-void validateName(const Employee& record) {
+void EmployeeService::validateName(const Employee& record) {
 
 }
 
-void validateSSN(const Employee& record) {
+void EmployeeService::validateSSN(const Employee& record) {
 	if (record.getName().length() != 10) {
 		throw InvalidSSNException();
 	}
@@ -65,19 +65,19 @@ void validateSSN(const Employee& record) {
 	}
 }
 
-void validateSalary(const Employee& record) {
+void EmployeeService::validateSalary(const Employee& record) {
 	if (record.getSalary() < 0) {
 		throw InvalidSalaryException();
 	}
 }
 
-void validateMonth(const Employee& record) {
+void EmployeeService::validateMonth(const Employee& record) {
 	if (record.getMonth() < 0 || record.getMonth() > 12) {
 		throw InvalidMonthException();
 	}
 }
 
-void validateYear(const Employee& record) {
+void EmployeeService::validateYear(const Employee& record) {
 	if (record.getYear() > 2017) {
 		throw InvalidYearException();
 	}
