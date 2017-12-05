@@ -18,9 +18,9 @@ public:
 	string getHighestSalaryName(int year);
 
 private:
-	void validateName(const Employee& record);
-	void validateSSN(const Employee& record);
-	void validateSalary(const Employee& record);
-	void validateMonth(const Employee& record);
-	void validateYear(const Employee& record);
+	void validateName(const string& name);
+	void validateSSN(const string& ssn);
+	void validateSalary(const int& salary);
+	void validateMonth(const int& month);
+	void validateYear(const int& year);
 };
