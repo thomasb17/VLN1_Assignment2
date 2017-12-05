@@ -1,6 +1,11 @@
 #pragma once
 
 #include "../Repositories/EmployeeRepository.h"
+#include "../Exceptions/InvalidNameException.h"
+#include "../Exceptions/InvalidSSNException.h"
+#include "../Exceptions/InvalidSalaryException.h"
+#include "../Exceptions/InvalidMonthException.h"
+#include "../Exceptions/InvalidYearException.h"
 
 class EmployeeService
 {
