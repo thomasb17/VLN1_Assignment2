@@ -23,52 +23,8 @@ void EmployeeUI::mainMenu() {
 
 void EmployeeUI::validateInput(char input) {
 	if (input == '1') {
-<<<<<<< HEAD
 		addSalaryRecord();
-=======
-		//Add a salary record
-		string name, ssn;
-		int salary;
-		int month;
-		int year;
-
-		cout << "Name: ";
-		cin >> ws;
-		getline(cin, name);
-		cout << "SSN: ";
-		cin >> ssn;
-		cout << "Salary: ";
-		cin >> salary;
-		cout << "Month (1 - 12): ";
-		cin >> month;
-		cout << "Year: ";
-		cin >> year;
-	
-		try {
-			service.addRecord(Employee(name, ssn, salary, month, year));
-		}
-		catch (InvalidNameException) {
-			system("CLS");
-			cout << "Invalid name!" << endl;
-		}
-		catch (InvalidSSNException) {
-			system("CLS");
-			cout << "Invalid SSN!" << endl;
-		}
-		catch (InvalidSalaryException) {
-			system("CLS");
-			cout << "Invalid salary!" << endl;
-		}
-		catch (InvalidMonthException) {
-			system("CLS");
-			cout << "Invalid month!" << endl;
-		}
-		catch (InvalidYearException) {
-			system("CLS");
-			cout << "Invalid year!" << endl;
-		}
->>>>>>> d39bc9967973b11da8b99853be5ab5fcb523040d
-	}	
+	}
 	else if (input == '2') {
 		getSalaryRecords();
 	}
@@ -100,7 +56,8 @@ void EmployeeUI::addSalaryRecord() {
 	int year;
 
 	cout << "Name: ";
-	cin >> name;
+	cin >> ws;
+	getline(cin, name);
 	cout << "SSN: ";
 	cin >> ssn;
 	cout << "Salary: ";
