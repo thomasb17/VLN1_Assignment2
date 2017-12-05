@@ -47,19 +47,19 @@ void EmployeeUI::validateInput(char input) {
 			service.addRecord(Employee(name, ssn, salary, month, year));
 		}
 		catch (InvalidNameException) {
-			cout << "Invalid name";
+			cout << "Invalid name" << endl;
 		}
 		catch (InvalidSSNException) {
-			cout << "Invalid SSN";
+			cout << "Invalid SSN" << endl;
 		}
 		catch (InvalidSalaryException) {
-			cout << "Invalid salary";
+			cout << "Invalid salary" << endl;
 		}
 		catch (InvalidMonthException) {
-			cout << "Invalid month";
+			cout << "Invalid month" << endl;
 		}
 		catch (InvalidYearException) {
-			cout << "Invalid year";
+			cout << "Invalid year" << endl;
 		}
 	}	
 
@@ -87,15 +87,17 @@ void EmployeeUI::validateInput(char input) {
 		cout << "SSN: ";
 		cin >> str;
 		try {
-			service.getTotalSalary(year, str);
+			cout << "The total salary for that given year and SSN is: " << service.getTotalSalary(year, str) << endl;
 		}
-		catch (InvalidSalaryException) {
-			cout << "Invalid salary";
+		catch (InvalidYearException) {
+			cout << "Invalid year" << endl;
 		}
 		catch (InvalidSSNException) {
-			cout << "Invalid SSN";
+			cout << "Invalid SSN" << endl;
 		}
-		cout << "The total salary for that given year and SSN is: " << service.getTotalSalary(year, str) << endl;
+		catch (NoFileExceptions) {
+			cout << "File not found" << endl;
+		}
 
 	}
 	else if (input == '4') {
