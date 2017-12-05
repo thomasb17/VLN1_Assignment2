@@ -13,5 +13,6 @@ public:
 	EmployeeUI();
 	void mainMenu();
 	void validateInput(char input);
+	//void validInput();
 };
 

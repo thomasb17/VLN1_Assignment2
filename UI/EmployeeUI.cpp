@@ -47,19 +47,19 @@ void EmployeeUI::validateInput(char input) {
 			service.addRecord(Employee(name, ssn, salary, month, year));
 		}
 		catch (InvalidNameException) {
-			cout << "Name";
+			cout << "Invalid name";
 		}
 		catch (InvalidSSNException) {
-			cout << "SSN";
+			cout << "Invalid SSN";
 		}
 		catch (InvalidSalaryException) {
-			cout << "Salary";
+			cout << "Invalid salary";
 		}
 		catch (InvalidMonthException) {
-			cout << "Month";
+			cout << "Invalid month";
 		}
 		catch (InvalidYearException) {
-			cout << "Year";
+			cout << "Invalid year";
 		}
 	}	
 
@@ -86,6 +86,15 @@ void EmployeeUI::validateInput(char input) {
 		cin >> year;
 		cout << "SSN: ";
 		cin >> str;
+		try {
+			service.getTotalSalary(year, str);
+		}
+		catch (InvalidSalaryException) {
+			cout << "Invalid salary";
+		}
+		catch (InvalidSSNException) {
+			cout << "Invalid SSN";
+		}
 		cout << "The total salary for that given year and SSN is: " << service.getTotalSalary(year, str) << endl;
 
 	}
@@ -100,5 +109,22 @@ void EmployeeUI::validateInput(char input) {
 	else {
 		cout << "Invalid input!" << endl;
 	}
-
 }
+
+/*void EmployeeUI::validInput() {
+	catch (InvalidNameException) {
+		cout << "Name";
+	}
+	catch (InvalidSSNException) {
+		cout << "SSN";
+	}
+	catch (InvalidSalaryException) {
+		cout << "Salary";
+	}
+	catch (InvalidMonthException) {
+		cout << "Month";
+	}
+	catch (InvalidYearException) {
+		cout << "Year";
+	}
+}*/
