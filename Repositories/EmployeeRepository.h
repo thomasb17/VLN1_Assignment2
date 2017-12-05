@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "../Models/Employee.h"
+#include "../Exceptions/NoFileException.h"
 
 class EmployeeRepository
 {
