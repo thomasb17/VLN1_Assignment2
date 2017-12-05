@@ -116,6 +116,7 @@
     <ClCompile Include="Exceptions\InvalidSalaryException.cpp" />
     <ClCompile Include="Exceptions\InvalidSSNException.cpp" />
     <ClCompile Include="Exceptions\InvalidYearException.cpp" />
+    <ClCompile Include="Exceptions\NoFileException.cpp" />
     <ClCompile Include="UI\EmployeeUI.cpp" />
     <ClCompile Include="Services\EmployeeService.cpp" />
     <ClCompile Include="Repositories\EmployeeRepository.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="Exceptions\InvalidSalaryException.h" />
     <ClInclude Include="Exceptions\InvalidSSNException.h" />
     <ClInclude Include="Exceptions\InvalidYearException.h" />
+    <ClInclude Include="Exceptions\NoFileException.h" />
     <ClInclude Include="UI\EmployeeUI.h" />
     <ClInclude Include="Services\EmployeeService.h" />
     <ClInclude Include="Repositories\EmployeeRepository.h" />

@@ -1,4 +1,5 @@
 #include "EmployeeRepository.h"
+#include "../Exceptions/NoFileException.h"
 #include <fstream>
 
 EmployeeRepository::EmployeeRepository() {
@@ -53,6 +54,9 @@ vector<Employee> EmployeeRepository::getRecords() {
 			pos = fin.tellg();
 		}
 		fin.close();
+	}
+	else {
+		throw NoFileException();
 	}
 	return vec;
 }
