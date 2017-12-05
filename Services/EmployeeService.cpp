@@ -6,7 +6,27 @@ void EmployeeService::addRecord(const Employee& record) {
 	validateSalary(record.getSalary());
 	validateMonth(record.getMonth());
 	validateYear(record.getYear());
-	repo.addRecord(record);
+	vector<Employee> vec;
+	bool overwrite = false;
+	try {
+		vec = repo.getRecords();
+		for (int i = 0; i < vec.size(); ++i) {
+			if (record.getSSN() == vec.at(i).getSSN() && record.getMonth() == vec.at(i).getMonth() && record.getYear() == vec.at(i).getYear()) {
+				vec.at(i) = record;
+				overwrite = true;
+				break;
+			}
+		}
+		if (overwrite) {
+			repo.addRecords(vec);
+		}
+		else {
+			repo.addRecord(record);
+		}
+	}
+	catch(NoFileException) {
+		repo.addRecord(record);
+	}
 }
 
 vector<Employee> EmployeeService::getRecordsForSSN(string ssn) {
