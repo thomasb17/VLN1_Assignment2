@@ -33,7 +33,8 @@ void EmployeeUI::validateInput(char input) {
 		int year;
 
 		cout << "Name: ";
-		cin >> name;
+		cin >> ws;
+		getline(cin, name);
 		cout << "SSN: ";
 		cin >> ssn;
 		cout << "Salary: ";

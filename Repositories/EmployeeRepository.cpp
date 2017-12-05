@@ -24,6 +24,25 @@ void EmployeeRepository::addRecord(const Employee& record) {
 	fout.close();
 }
 
+void EmployeeRepository::addRecords(const vector<Employee>& vec) {
+	ofstream fout;
+	fout.open(this->file, ios::binary);
+	int size, salary, month, year;
+	for (unsigned int i = 0; i < vec.size(); i++) {
+		size = (vec.at(i).getName()).length() + 1;
+		fout.write((char*)(&size), sizeof(int));
+		fout.write((vec.at(i).getName()).c_str(), size);
+		fout.write((vec.at(i).getSSN()).c_str(), 11);
+		salary = vec.at(i).getSalary();
+		fout.write((char*)(&salary), sizeof(int));
+		month = vec.at(i).getMonth();
+		fout.write((char*)(&month), sizeof(int));
+		year = vec.at(i).getYear();
+		fout.write((char*)(&year), sizeof(int));
+	}
+	fout.close();
+}
+
 vector<Employee> EmployeeRepository::getRecords() {
 	ifstream fin;
 	vector<Employee> vec;
