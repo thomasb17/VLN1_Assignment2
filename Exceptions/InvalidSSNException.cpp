@@ -5,8 +5,3 @@
 InvalidSSNException::InvalidSSNException()
 {
 }
-
-
-InvalidSSNException::~InvalidSSNException()
-{
-}

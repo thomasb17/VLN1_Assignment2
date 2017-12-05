@@ -6,7 +6,3 @@ InvalidNameException::InvalidNameException()
 {
 }
 
-
-InvalidNameException::~InvalidNameException()
-{
-}

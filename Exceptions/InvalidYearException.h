@@ -3,6 +3,5 @@ class InvalidYearException
 {
 public:
 	InvalidYearException();
-	~InvalidYearException();
 };
 

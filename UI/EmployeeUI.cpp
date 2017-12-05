@@ -1,7 +1,6 @@
 #include "EmployeeUI.h"
 
 
-
 EmployeeUI::EmployeeUI()
 {
 	input = ' ';
@@ -43,8 +42,27 @@ void EmployeeUI::validateInput(char input) {
 		cin >> month;
 		cout << "Year: ";
 		cin >> year;
-		service.addRecord(Employee(name, ssn, salary, month, year));
-	}
+	
+		try {
+			service.addRecord(Employee(name, ssn, salary, month, year));
+		}
+		catch (InvalidNameException) {
+			cout << "Name";
+		}
+		catch (InvalidSSNException) {
+			cout << "SSN";
+		}
+		catch (InvalidSalaryException) {
+			cout << "Salary";
+		}
+		catch (InvalidMonthException) {
+			cout << "Month";
+		}
+		catch (InvalidYearException) {
+			cout << "Year";
+		}
+	}	
+
 	else if (input == '2') {
 		//Get all salary records for a given SSN
 		cout << "Please input an SSN: ";

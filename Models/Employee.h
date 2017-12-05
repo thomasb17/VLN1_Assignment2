@@ -21,6 +21,7 @@ public:
 	string getSSN() const;
 	int getSalary() const;
 	int getMonth() const;
+
 	int getYear() const;
 	void setName(string name);
 	void setSSN(string snn);

@@ -3,6 +3,5 @@ class InvalidSSNException
 {
 public:
 	InvalidSSNException();
-	~InvalidSSNException();
 };
 

@@ -5,8 +5,3 @@
 InvalidYearException::InvalidYearException()
 {
 }
-
-
-InvalidYearException::~InvalidYearException()
-{
-}

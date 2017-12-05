@@ -1,9 +1,4 @@
 #include "EmployeeService.h"
-#include "../Exceptions/InvalidNameException.h"
-#include "../Exceptions/InvalidSSNException.h"
-#include "../Exceptions/InvalidSalaryException.h"
-#include "../Exceptions/InvalidMonthException.h"
-#include "../Exceptions/InvalidYearException.h"
 
 void EmployeeService::addRecord(const Employee& record) {
 	validateName(record);
@@ -51,24 +46,37 @@ string EmployeeService::getHighestSalaryName(int year) {
 }
 
 void EmployeeService::validateName(const Employee& record) {
+<<<<<<< HEAD
 	string tempName = record.getName();
 	for (int i = 0; i < tempName.length(); i++)
 	{
 		if (!isalpha(tempName[i]))
 		{
+=======
+	for (int i = 0; i < record.getName().length(); ++i) {
+		if (!isalpha(record.getName()[i]) || record.getName()[i] != ' ') {
+>>>>>>> 86b4aaa72d4384744c001657d146f6afa0a7af2a
 			throw InvalidNameException();
 		}
 	}
 }
 
 void EmployeeService::validateSSN(const Employee& record) {
+<<<<<<< HEAD
 	if (record.getName().length() != 10) {
+=======
+	if (record.getSSN().length() != 10) {
+>>>>>>> 86b4aaa72d4384744c001657d146f6afa0a7af2a
 		throw InvalidSSNException();
 	}
 	string ssn = record.getSSN();
 
 	for (int i = 0; i < 10; ++i) {
+<<<<<<< HEAD
 		if (!isdigit(ssn[i])) {
+=======
+		if (!isdigit(record.getSSN()[i])){
+>>>>>>> 86b4aaa72d4384744c001657d146f6afa0a7af2a
 			throw InvalidSSNException();
 		}
 	}

@@ -3,6 +3,5 @@ class InvalidMonthException
 {
 public:
 	InvalidMonthException();
-	~InvalidMonthException();
 };
 
