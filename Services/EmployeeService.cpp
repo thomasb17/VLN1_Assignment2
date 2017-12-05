@@ -51,7 +51,11 @@ string EmployeeService::getHighestSalaryName(int year) {
 }
 
 void EmployeeService::validateName(const Employee& record) {
-
+	for (int i = 0; i < record.getName().length(); ++i) {
+		if (!isalpha(record.getName()[i]) || record.getName()[i] != ' ') {
+			throw InvalidNameException();
+		}
+	}
 }
 
 void EmployeeService::validateSSN(const Employee& record) {
