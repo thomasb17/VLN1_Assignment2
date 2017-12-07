@@ -31,10 +31,11 @@ void EmployeeService::addRecord(const Employee& record) {
 
 vector<Employee> EmployeeService::getRecordsForSSN(string ssn) {
 	validateSSN(ssn);
-	vector<Employee> vec = repo.getRecords();
-	for (int i = 0; i < vec.size(); i++) {
-		if (vec.at(i).getSSN() != ssn) {
-			vec.erase(vec.begin() + i);
+	vector<Employee> vec;
+	vector<Employee> emps = repo.getRecords();
+	for (int i = 0; i < emps.size(); i++) {
+		if (emps.at(i).getSSN() == ssn) {
+			vec.push_back(emps.at(i));
 		}
 	}
 	return vec;
