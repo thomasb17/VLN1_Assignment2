@@ -15,31 +15,33 @@ void EmployeeUI::mainMenu() {
 			<< "4. Get the name of the employee with the highest total salary for a given year\n"
 			<< "5. To quit\n\n"
 			<< "Input: ";
-	cin >> input;
+	 cin >> input;
+	 system("CLS");
 	 validateInput(input);
 	}
 }
 
 
 void EmployeeUI::validateInput(char input) {
-	if (input == '1') {
+	switch (input) {
+	case '1':
 		addSalaryRecord();
-	}
-	else if (input == '2') {
+		break;
+	case '2':
 		getSalaryRecords();
-	}
-	else if (input == '3') {
+		break;
+	case '3':
 		totalSalary();
-	}
-	else if (input == '4') {
+		break;
+	case '4':
 		highestSalaryWorker();
-	}
-	else if (input == '5') {
+		break;
+	case '5':
 		exit(1);
-	}
-	else {
+	default: {
 		system("CLS");
 		cout << "Invalid input!" << endl;
+	}
 	}
 }
 
@@ -54,7 +56,7 @@ void EmployeeUI::addSalaryRecord() {
 	int salary;
 	int month;
 	int year;
-
+	cout << "Please enter the following information: " << endl;
 	cout << "Name: ";
 	cin >> ws;
 	getline(cin, name);
@@ -67,27 +69,23 @@ void EmployeeUI::addSalaryRecord() {
 	cout << "Year: ";
 	cin >> year;
 
+	system("CLS");
 	try {
 		service.addRecord(Employee(name, ssn, salary, month, year));
 	}
 	catch (InvalidNameException) {
-		system("CLS");
 		cout << "Invalid name!" << endl;
 	}
 	catch (InvalidSSNException) {
-		system("CLS");
 		cout << "Invalid SSN!" << endl;
 	}
 	catch (InvalidSalaryException) {
-		system("CLS");
 		cout << "Invalid salary!" << endl;
 	}
 	catch (InvalidMonthException) {
-		system("CLS");
 		cout << "Invalid month!" << endl;
 	}
 	catch (InvalidYearException) {
-		system("CLS");
 		cout << "Invalid year!" << endl;
 	}
 }
@@ -108,13 +106,13 @@ void EmployeeUI::getSalaryRecords() {
 		}
 	}
 	catch (InvalidSSNException) {
-		system("CLS");
 		cout << "Invalid SSN!" << endl;
 	}
 	catch (NoFileException) {
-		system("CLS");
 		cout << "File not found." << endl;
 	}
+	system("PAUSE");
+	system("CLS");
 }
 
 
@@ -132,18 +130,14 @@ void EmployeeUI::totalSalary() {
 		cout << "The total salary for that given year and SSN is: " << service.getTotalSalary(year, str) << endl;
 	}
 	catch (InvalidYearException) {
-		system("CLS");
 		cout << "Invalid year!" << endl;
 	}
 	catch (InvalidSSNException) {
-		system("CLS");
 		cout << "Invalid SSN!" << endl;
 	}
 	catch (NoFileException) {
-		system("CLS");
 		cout << "File not found." << endl;
 	}
-
 }
 
 //4. Get the name of the employee with the highest total salary for a given year.
@@ -155,7 +149,6 @@ void EmployeeUI::highestSalaryWorker() {
 		cout << "The employee with the highest total salary for that given year is: " << service.getHighestSalaryName(year) << endl;
 	}
 	catch (InvalidYearException) {
-		system("CLS");
 		cout << "Invalid year!" << endl;
 	}
 }
