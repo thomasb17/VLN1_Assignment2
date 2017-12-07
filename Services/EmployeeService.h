@@ -6,6 +6,7 @@
 #include "../Exceptions/InvalidSalaryException.h"
 #include "../Exceptions/InvalidMonthException.h"
 #include "../Exceptions/InvalidYearException.h"
+#include "../Exceptions/EmptyVectorException.h"
 
 class EmployeeService
 {
@@ -23,4 +24,5 @@ private:
 	void validateSalary(const int& salary);
 	void validateMonth(const int& month);
 	void validateYear(const int& year);
+	void validateVector(const vector<Employee>& vec);
 };

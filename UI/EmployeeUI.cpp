@@ -111,6 +111,9 @@ void EmployeeUI::getSalaryRecords() {
 	catch (NoFileException) {
 		cout << "File not found." << endl;
 	}
+	catch (EmptyVectorException) {
+		cout << "No records found." << endl;
+	}
 	system("PAUSE");
 	system("CLS");
 }

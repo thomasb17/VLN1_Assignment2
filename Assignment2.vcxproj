@@ -111,6 +111,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Exceptions\EmptyVectorException.cpp" />
     <ClCompile Include="Exceptions\InvalidMonthException.cpp" />
     <ClCompile Include="Exceptions\InvalidNameException.cpp" />
     <ClCompile Include="Exceptions\InvalidSalaryException.cpp" />
@@ -124,6 +125,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Exceptions\EmptyVectorException.h" />
     <ClInclude Include="Exceptions\InvalidMonthException.h" />
     <ClInclude Include="Exceptions\InvalidNameException.h" />
     <ClInclude Include="Exceptions\InvalidSalaryException.h" />

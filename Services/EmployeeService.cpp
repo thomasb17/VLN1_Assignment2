@@ -38,6 +38,7 @@ vector<Employee> EmployeeService::getRecordsForSSN(string ssn) {
 			vec.push_back(emps.at(i));
 		}
 	}
+	validateVector(vec);
 	return vec;
 }
 
@@ -105,5 +106,10 @@ void EmployeeService::validateMonth(const int& month) {
 void EmployeeService::validateYear(const int& year) {
 	if (year > 2017) {
 		throw InvalidYearException();
+	}
+}
+void EmployeeService::validateVector(const vector<Employee>& vec) {
+	if (vec.size() == 0) {
+		throw EmptyVectorException();
 	}
 }
