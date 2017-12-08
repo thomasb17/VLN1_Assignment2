@@ -7,6 +7,7 @@
 #include "../Exceptions/InvalidMonthException.h"
 #include "../Exceptions/InvalidYearException.h"
 #include "../Exceptions/EmptyVectorException.h"
+#include "../Exceptions/MismatchedSSNException.h"
 #include <string>
 class EmployeeService
 {
@@ -30,4 +31,6 @@ private:
 	void validateMonth(const int& month);
 	void validateYear(const int& year);
 	void validateVector(const vector<Employee>& vec);
+	void validateSSNToName(const string ssn, const string& name);
+
 };

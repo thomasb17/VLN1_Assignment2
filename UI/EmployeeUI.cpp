@@ -88,6 +88,9 @@ void EmployeeUI::addSalaryRecord() {
 	catch (InvalidYearException) {
 		cout << "Invalid year!" << endl;
 	}
+	catch (MismatchedSSNException) {
+		cout << "SSN already taken!" << endl;
+	}
 }
 
 
@@ -133,6 +136,7 @@ void EmployeeUI::getSalaryRecords() {
 	catch (EmptyVectorException) {
 		cout << "No records found." << endl;
 	}
+
 	cout << endl;
 	system("PAUSE");
 	system("CLS");

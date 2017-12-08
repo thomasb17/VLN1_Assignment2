@@ -9,6 +9,7 @@ void EmployeeService::addRecord(const Employee& record) {
 	validateSalary(record.getSalary());
 	validateMonth(record.getMonth());
 	validateYear(record.getYear());
+	validateSSNToName(record.getSSN(), record.getName());
 	vector<Employee> vec;
 	bool overwrite = false;
 	try {
@@ -41,7 +42,6 @@ vector<Employee> EmployeeService::getRecordsForSSN(string ssn) {
 			vec.push_back(emps.at(i));
 		}
 	}
-	validateVector(vec);
 	return vec;
 }
 
@@ -147,6 +147,16 @@ void EmployeeService::validateSSN(const string& ssn) {
 		}
 	}
 }
+
+void EmployeeService::validateSSNToName(const string ssn, const string& name) {
+	vector<Employee> vec = getRecordsForSSN(ssn);
+	for (unsigned int i = 0; i < vec.size();i++) {
+		if (vec.at(i).getName() != name) {
+			throw MismatchedSSNException();
+		}
+	}
+}
+
 
 void EmployeeService::validateSalary(const int& salary) {
 	if (salary < 0 ) {
