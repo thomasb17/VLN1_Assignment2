@@ -10,7 +10,6 @@ private:
 	string file;
 public:
 	EmployeeRepository();
-	~EmployeeRepository();
 	void addRecord(const Employee& record);
 	void addRecords(const vector<Employee>& vec);
 	vector<Employee> getRecords();

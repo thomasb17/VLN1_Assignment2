@@ -92,7 +92,7 @@ void EmployeeService::validateSSN(const string& ssn) {
 }
 
 void EmployeeService::validateSalary(const int& salary) {
-	if (salary < 0) {
+	if (salary < 0 ) {
 		throw InvalidSalaryException();
 	}
 }

@@ -5,9 +5,6 @@ EmployeeRepository::EmployeeRepository() {
 	this->file = "EmployeeRecords.bat";
 }
 
-
-EmployeeRepository::~EmployeeRepository() {}
-
 void EmployeeRepository::addRecord(const Employee& record) {
 	ofstream fout;
 	fout.open(this->file, ios::binary | ios::app);
