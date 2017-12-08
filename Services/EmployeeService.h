@@ -7,7 +7,7 @@
 #include "../Exceptions/InvalidMonthException.h"
 #include "../Exceptions/InvalidYearException.h"
 #include "../Exceptions/EmptyVectorException.h"
-
+#include <string>
 class EmployeeService
 {
 private:
@@ -17,6 +17,11 @@ public:
 	vector<Employee> getRecordsForSSN(string ssn);
 	int getTotalSalary(int year, string ssn);
 	string getHighestSalaryName(int year);
+	string fillIntWithSpaces(int salary, int size);
+	string fillStringWithSpaces(string name, int size);
+	int lengthOfInt(int number);
+	int sizeOfLongestSalary(vector<Employee> vec);
+	int sizeOfLongestName(vector<Employee> vec);
 
 private:
 	void validateName(const string& name);

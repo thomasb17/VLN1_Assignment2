@@ -1,5 +1,8 @@
 #include "EmployeeService.h"
 
+
+/*			Public functions			*/
+
 void EmployeeService::addRecord(const Employee& record) {
 	validateName(record.getName());
 	validateSSN(record.getSSN());
@@ -70,11 +73,65 @@ string EmployeeService::getHighestSalaryName(int year) {
 	}
 	return str;
 }
+/*	To make sure the output on the screen is correct */
 
+
+int EmployeeService::sizeOfLongestName(vector<Employee> vec) {
+	string longestName = "";
+	for (unsigned int i = 0; i < vec.size();i++) {
+		if (longestName.size() < vec.at(i).getName().size()) {
+			longestName = vec.at(i).getName();
+		}
+	}
+	return longestName.size();
+}
+
+//count the digits of the biggestSalary (to help us print)
+int EmployeeService::sizeOfLongestSalary(vector<Employee> vec) {
+	int biggestSalary = 0;
+	for (unsigned int i = 0; i < vec.size();i++) {
+		if (biggestSalary < vec.at(i).getSalary()) {
+			biggestSalary = vec.at(i).getSalary();
+		}
+	}
+	return lengthOfInt(biggestSalary);
+}
+
+int EmployeeService::lengthOfInt(int number) {
+	int digits = 0;
+	while (number != 0) {
+		digits++;
+		number /= 10;
+	}
+	return digits;
+}
+
+string EmployeeService::fillStringWithSpaces(string name, int size) {
+	string tempString = name;
+	for (unsigned int i = 0; i < size - name.size(); i++) {
+		tempString += " ";
+	}
+	return tempString;
+}
+
+string EmployeeService::fillIntWithSpaces(int salary, int size) {
+	string tempString = to_string(salary);
+	for (unsigned int i = 0; i < size - lengthOfInt(salary); i++) {
+		tempString += " ";
+	}
+	return tempString;
+}
+
+
+/*			Private functions			*/			
+
+//We only allow english characters
 void EmployeeService::validateName(const string& name) {
 	for (int i = 0; i < name.length(); ++i) {
-		if (!isalpha(name[i]) && name[i] != ' ') {
-			throw InvalidNameException();
+		if(!(name[i] == ' ' ||
+			('a' <= name[i] && name[i] <= 'z') ||
+			('A' <= name[i] && name[i] <= 'Z'))){
+				throw InvalidNameException();
 		}
 	}
 }
@@ -114,3 +171,4 @@ void EmployeeService::validateVector(const vector<Employee>& vec) {
 		throw EmptyVectorException();
 	}
 }
+

@@ -99,58 +99,27 @@ void EmployeeUI::getSalaryRecords() {
 	try {
 		vector<Employee> vec = service.getRecordsForSSN(str);
 
-		//To make the spacing right when printing out
-		string longestName = "Name:";
-		int biggestSalary  = 0;
-		for (unsigned int i = 0; i < vec.size();i++) {
-			if (longestName.size() < vec.at(i).getName().size()) {
-				longestName = vec.at(i).getName();
-			}
-			if (biggestSalary < vec.at(i).getSalary()) {
-				biggestSalary = vec.at(i).getSalary();
-			}
-		}
-		//count the digits of the biggestSalary (to help us print)
-		int salaryLength = 0;
-		while(biggestSalary != 0){
-			salaryLength++;
-			biggestSalary /= 10;
-		} 
-		if (salaryLength < 7) {
-			salaryLength = 7;
+		int maxNameSize = service.sizeOfLongestName(vec);
+		//we want it to be at least 5 letters, since Name:" is 5 characters long
+		if (maxNameSize < 5) {
+			maxNameSize = 5;
 		}
 
-		cout << "Name:";
-			for (unsigned int i = 0; i < longestName.size() - 5; i++) {
-				cout << " ";
-			}
-		cout << "\tSSN:\t\tSalary:";
+		int maxSalarySize = service.sizeOfLongestSalary(vec);
+		//we want it to be at least 7 digits, since "Salary:" is 7 characters long
+		if (maxSalarySize < 7) {
+			maxSalarySize = 7;
+		}
 
-		for(unsigned int i = 0; i < salaryLength - 7; i++) {
-				cout << " ";
-			}
+		cout << service.fillStringWithSpaces("Name:", maxNameSize);
+		cout << "\tSSN:\t\t";
+		cout << service.fillStringWithSpaces("Salary:", maxSalarySize);
 		cout << "\tMonth:\tYear:" << endl;
 
-		int currentSalaryInDigit = 0;
-		int currentSalary = 0;
-
 		for (int i = 0; i < vec.size(); ++i) {
-			cout << vec.at(i).getName();
-			for (unsigned int j = 0; j < (longestName.size() - vec.at(i).getName().size()); j++) {
-				cout << " ";
-			}
+			cout << service.fillStringWithSpaces(vec.at(i).getName(), maxNameSize);
 			cout << "\t" << vec.at(i).getSSN() << "\t";
-			cout << vec.at(i).getSalary();
-			currentSalaryInDigit = 0;
-			currentSalary = vec.at(i).getSalary();
-			while (currentSalary != 0) {
-				currentSalaryInDigit++;
-				currentSalary /= 10;
-			}
-
-			for (unsigned int i = 0; i < (salaryLength - currentSalaryInDigit); i++) {
-				cout << " ";
-			}
+			cout << service.fillIntWithSpaces(vec.at(i).getSalary(), maxSalarySize);
 			cout << "\t" << vec.at(i).getMonth() << "\t";
 			cout << vec.at(i).getYear() << endl;
 		}
