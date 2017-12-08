@@ -66,7 +66,7 @@ void EmployeeUI::addSalaryRecord() {
 	cin >> salary;
 	cout << "Month (1 - 12): ";
 	cin >> month;
-	cout << "Year: ";
+	cout << "Year (1960 - 2017): ";
 	cin >> year;
 
 	system("CLS");
@@ -98,10 +98,60 @@ void EmployeeUI::getSalaryRecords() {
 	cin >> str;
 	try {
 		vector<Employee> vec = service.getRecordsForSSN(str);
-		cout << "Name:\tSSN:\t\tSalary:\tMonth:\tYear:" << endl;
+
+		//To make the spacing right when printing out
+		string longestName = "Name:";
+		int biggestSalary  = 0;
+		for (unsigned int i = 0; i < vec.size();i++) {
+			if (longestName.size() < vec.at(i).getName().size()) {
+				longestName = vec.at(i).getName();
+			}
+			if (biggestSalary < vec.at(i).getSalary()) {
+				biggestSalary = vec.at(i).getSalary();
+			}
+		}
+		//count the digits of the biggestSalary (to help us print)
+		int salaryLength = 0;
+		while(biggestSalary != 0){
+			salaryLength++;
+			biggestSalary /= 10;
+		} 
+		if (salaryLength < 7) {
+			salaryLength = 7;
+		}
+
+		cout << "Name:";
+			for (unsigned int i = 0; i < longestName.size() - 5; i++) {
+				cout << " ";
+			}
+		cout << "\tSSN:\t\tSalary:";
+
+		for(unsigned int i = 0; i < salaryLength - 7; i++) {
+				cout << " ";
+			}
+		cout << "\tMonth:\tYear:" << endl;
+
+		int currentSalaryInDigit = 0;
+		int currentSalary = 0;
+
 		for (int i = 0; i < vec.size(); ++i) {
-			cout << vec.at(i).getName() << "\t" << vec.at(i).getSSN() << "\t";
-			cout << vec.at(i).getSalary() << "\t" << vec.at(i).getMonth() << "\t";
+			cout << vec.at(i).getName();
+			for (unsigned int j = 0; j < (longestName.size() - vec.at(i).getName().size()); j++) {
+				cout << " ";
+			}
+			cout << "\t" << vec.at(i).getSSN() << "\t";
+			cout << vec.at(i).getSalary();
+			currentSalaryInDigit = 0;
+			currentSalary = vec.at(i).getSalary();
+			while (currentSalary != 0) {
+				currentSalaryInDigit++;
+				currentSalary /= 10;
+			}
+
+			for (unsigned int i = 0; i < (salaryLength - currentSalaryInDigit); i++) {
+				cout << " ";
+			}
+			cout << "\t" << vec.at(i).getMonth() << "\t";
 			cout << vec.at(i).getYear() << endl;
 		}
 	}
@@ -114,6 +164,7 @@ void EmployeeUI::getSalaryRecords() {
 	catch (EmptyVectorException) {
 		cout << "No records found." << endl;
 	}
+	cout << endl;
 	system("PAUSE");
 	system("CLS");
 }

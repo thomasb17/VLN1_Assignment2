@@ -103,8 +103,9 @@ void EmployeeService::validateMonth(const int& month) {
 	}
 }
 
+//We only allow years from 1960 to 2017
 void EmployeeService::validateYear(const int& year) {
-	if (year > 2017) {
+	if (year < 1960 ||2017 < year) {
 		throw InvalidYearException();
 	}
 }
